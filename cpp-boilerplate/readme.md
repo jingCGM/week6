@@ -1,8 +1,8 @@
 # C++ Boilerplate
+[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
 ---
 
 ## Overview
-
 Simple starter C++ project with:
 
 - cmake
@@ -24,6 +24,11 @@ Run program: ./app/shell-app
 ## Google Mock
 Google mock is used in this project to mock class of AnalogSensor which is used by Total class to display its value.
 In test files, AnalogSensorMock class is used to mock AnalogSensor
+
+## Run GMock
+```
+    run build/tests: ./test/cpp-test
+```
 
 ## Building for code coverage (for assignments beginning in Week 4)
 ```
