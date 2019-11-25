@@ -26,7 +26,8 @@
 // THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
+//
+// Author: wan@google.com (Zhanyong Wan)
 
 // Google Mock - a framework for writing C++ mock classes.
 //
@@ -390,25 +391,23 @@ TEST(ExactlyTest, HasCorrectBounds) {
   EXPECT_EQ(3, c.ConservativeUpperBound());
 }
 
-// Tests that a user can make their own cardinality by implementing
+// Tests that a user can make his own cardinality by implementing
 // CardinalityInterface and calling MakeCardinality().
 
 class EvenCardinality : public CardinalityInterface {
  public:
-  // Returns true if and only if call_count calls will satisfy this
-  // cardinality.
-  bool IsSatisfiedByCallCount(int call_count) const override {
+  // Returns true iff call_count calls will satisfy this cardinality.
+  virtual bool IsSatisfiedByCallCount(int call_count) const {
     return (call_count % 2 == 0);
   }
 
-  // Returns true if and only if call_count calls will saturate this
-  // cardinality.
-  bool IsSaturatedByCallCount(int /* call_count */) const override {
+  // Returns true iff call_count calls will saturate this cardinality.
+  virtual bool IsSaturatedByCallCount(int /* call_count */) const {
     return false;
   }
 
   // Describes self to an ostream.
-  void DescribeTo(::std::ostream* ss) const override {
+  virtual void DescribeTo(::std::ostream* ss) const {
     *ss << "called even number of times";
   }
 };
