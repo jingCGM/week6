@@ -1,10 +1,12 @@
 #include <iostream>
 #include <AnalogSensor.hpp>
+#include <Total.hpp>
 
 int main()
 {
-    AnalogSensor lightSensor(5);
-    std::cout << "Averaged sensor reading: " << lightSensor.Read() << std::endl;
+    // AnalogSensor lightSensor;
+    // Total total;
+    // total.showSensor(&lightSensor);
     bool terminator= true;
     if( terminator )
     {
